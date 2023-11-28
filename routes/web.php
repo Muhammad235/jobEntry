@@ -16,10 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/listings', function () {
-    return view ('listings', [
-        'heading' => 'Latest listings',
-        'listings' => Listing::latest()
-    ]);
+    return view ('listings');
 });
 
 Route::get('/listing/{id}', function ($id) {
