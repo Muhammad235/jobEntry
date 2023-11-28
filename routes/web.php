@@ -15,12 +15,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/listings', function () {
-    return view ('listings');
+Route::get('/', function () {
+    return view ('listings', ['listings' => Listing::all()]);
 });
 
 Route::get('/listing/{id}', function ($id) {
     return view ('listing', [
         'listing' => Listing::find($id)
     ]);
+
+});
+
+Route::get('/about', function () {
+    return view ('about');
 });

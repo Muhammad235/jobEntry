@@ -37,6 +37,11 @@
     transition: .5s;
 }
 
+.tags{
+    border-radius: 10px;
+    border: 2px #2B3940 solid;
+}
+
 .btn.btn-primary,
 .btn.btn-secondary {
     color: #FFFFFF;

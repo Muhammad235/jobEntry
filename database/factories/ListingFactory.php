@@ -26,7 +26,7 @@ class ListingFactory extends Factory
             'website' => fake()->url(),
             'sallary_from' => rand(1, 999),
             'sallary_to' => rand(1, 9999),
-            'employment_type' => fake()->randomElement(['Full Time', 'PartTime']),
+            'employment_type' => fake()->randomElement(['Full Time', 'Part Time']),
             'logo' => fake()->imageUrl(360, 360)
         ];
     }
