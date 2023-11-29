@@ -22,5 +22,12 @@ class Listing extends Model
         'logo',
     ];
 
-         
+    public function scopeFilter($query, array $filters)
+    {
+// dd($filters['tag']);
+
+        if ($filters['tag'] ?? false) {
+            $query->where('tags', 'like', '%' . $filters['tag'] . '%');
+        }
+    }
 }
