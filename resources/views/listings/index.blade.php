@@ -2,7 +2,6 @@
 
 @section('content')
 
-
         <!-- Category Start -->
         <div class="container-xxl py-5">
             <div class="container">
@@ -139,39 +138,9 @@
                             
                             @foreach ($listings as $listing)
 
-                            <div class="job-item p-4 mb-4">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="{{asset('img/com-logo-2.jpg')}}" alt="" style="width: 80px; height: 80px;">
-                                        <div class="text-start ps-4">
-                                           <a href="/listing/{{$listing->id}}"><h5 class="mb-3">{{$listing->company}}</h5></a> 
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>{{$listing->location}}</span>
-                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>{{$listing->employment_type}}</span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>${{$listing->sallary_from}} - ${{$listing->sallary_to}}</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                            {{-- <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a> --}}
-                                            {{-- <a href="">Laravel</a> --}}
+                            {{-- listing card component --}}
+                            <x-all-listing-card :listing="$listing" />
 
-                                            @php
-                                                $tags = explode(',', $listing->tags);
-
-                                            @endphp
-                                                @foreach ($tags as $tag)
-                                                <a class="btn me-1 tags" href="/listing/{{$listing->id}}">
-                                                    {{ $tag }}
-                                                </a>
-                                               @endforeach
-                                            <a class="btn btn-primary" href="job-detail.html">Apply Now</a>
-                                        </div>
-                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
                             @endforeach
 
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
@@ -185,26 +154,20 @@
 
                         {{-- Full-time --}}
                         <div id="tab-2" class="tab-pane fade show p-0">
-                            <div class="job-item p-4 mb-4">
-                                <div class="row g-4">
-                                    <div class="col-sm-12 col-md-8 d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
-                                        <div class="text-start ps-4">
-                                            <h5 class="mb-3">Wordpress Developer</h5>
-                                            <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>rewa</span>
-                                            <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
-                                            <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
-                                        <div class="d-flex mb-3">
-                                            <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href="job-detail.html">Apply Now</a>
-                                        </div>
-                                        <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
-                                    </div>
-                                </div>
-                            </div>
+
+                            @unless (count($fulltime_listings) == 0)
+                                
+                            @foreach ($fulltime_listings as $fulltime_listing)  
+
+                                <x-fulltime-listing-card :fulltime_listing="$fulltime_listing" />
+
+                            @endforeach
+
+                            @else
+                            <h1 class="mb-5">No job post at the moment</h1>
+
+                            @endunless
+
                             <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
                         </div>
 
@@ -224,7 +187,7 @@
                                     <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
                                         <div class="d-flex mb-3">
                                             <a class="btn btn-light btn-square me-3" href=""><i class="far fa-heart text-primary"></i></a>
-                                            <a class="btn btn-primary" href="job-detail.html">Apply Now</a>
+                                            <a class="btn btn-primary" href="/listing/{{$listing->id}}">Apply Now</a>
                                         </div>
                                         <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
                                     </div>

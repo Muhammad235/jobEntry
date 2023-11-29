@@ -54,10 +54,10 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto p-4 p-lg-0">
-                    <a href="/" class="nav-item nav-link active">Home</a>
+                    <a href="/" class="nav-item nav-link">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="job-list.html" class="nav-item nav-link">Jobs</a>
-                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
                     <a href="login.html" class="nav-item nav-link">Login</a>          
                 </div>
                 <a href="" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
