@@ -30,15 +30,16 @@ class ListingController extends Controller
 
     public function store(CreateJobListRequest $request)
     {
-        // dd($request->all());
 
-        $request->validated();
+        $validateData = $request->validated();
 
-        $createJoblist = Listing::create($request->only('title', 'company', 'location', 'url', 'employment', 'email'));
+        $createJoblist = Listing::create($validateData);
 
-        dd($createJoblist);
+        if ($createJoblist) {
 
-        
-        // return redirect('/');
+            return redirect('/listings/create')->with('message', 'Job post created successfully');
+            
+        }
+    
     }
 }

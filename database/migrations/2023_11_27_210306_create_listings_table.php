@@ -22,7 +22,7 @@ return new class extends Migration
             $table->longText('description');
             $table->integer('sallary_from');
             $table->integer('sallary_to');
-            $table->string('employment_type'); //fulltime, part time
+            $table->$table->enum('employment_type', ['Full Time', 'Part Time']);//fulltime, part time
             $table->string('logo'); 
             $table->timestamps();
         });
