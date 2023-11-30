@@ -11,8 +11,8 @@ class ListingController extends Controller
     public function index(Request $request)
     {
         return view ('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get(),
-            'fulltime_listings' => Listing::where('employment_type', 'Full Time')->get()
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(5),
+            'fulltime_listings' => Listing::where('employment_type', 'Full Time')->paginate(5)
         ]);
     }
 
