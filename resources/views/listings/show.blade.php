@@ -22,7 +22,7 @@
                             $tags = explode(',', $listing->tags);
                         @endphp
                             @foreach ($tags as $tag)
-                            <a class="btn me-1 tags" href="/listing/{{$listing->id}}">
+                            <a class="btn me-1 tags" href="/listings/{{$listing->id}}">
                                 {{ $tag }}
                             </a>
                            @endforeach

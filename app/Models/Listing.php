@@ -24,10 +24,17 @@ class Listing extends Model
 
     public function scopeFilter($query, array $filters)
     {
-// dd($filters['tag']);
 
         if ($filters['tag'] ?? false) {
             $query->where('tags', 'like', '%' . $filters['tag'] . '%');
+        }
+
+        if ($filters['search'] ?? false) {
+            $query->where('title', 'like', '%' . $filters['search']  . '%')
+            ->orWhere('description', 'like', '%' . $filters['search'] . '%')
+            ->orWhere('tags', 'like', '%' . $filters['search'] . '%')
+            ->orWhere('company', 'like', '%' . $filters['search'] . '%')
+            ;
         }
     }
 }

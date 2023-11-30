@@ -10,7 +10,7 @@ class ListingController extends Controller
     public function index(Request $request)
     {
         return view ('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'employment_type']))->get(),
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->get(),
             'fulltime_listings' => Listing::where('employment_type', 'Full Time')->get()
         ]);
     }
@@ -20,5 +20,15 @@ class ListingController extends Controller
         return view ('listings.show', [
             'listing' => $listing
         ]);
+    }
+
+    public function create(Listing $listing)
+    {
+        return view ('listings.create');
+    }
+
+    public function store(Request $request)
+    {
+        dd($request->all());
     }
 }
