@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Listing;
 use Illuminate\Http\Request;
+use App\Http\Requests\CreateJobListRequest;
 
 class ListingController extends Controller
 {
@@ -27,8 +28,17 @@ class ListingController extends Controller
         return view ('listings.create');
     }
 
-    public function store(Request $request)
+    public function store(CreateJobListRequest $request)
     {
-        dd($request->all());
+        // dd($request->all());
+
+        $request->validated();
+
+        $createJoblist = Listing::create($request->only('title', 'company', 'location', 'url', 'employment', 'email'));
+
+        dd($createJoblist);
+
+        
+        // return redirect('/');
     }
 }

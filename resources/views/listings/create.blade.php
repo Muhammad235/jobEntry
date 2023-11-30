@@ -17,50 +17,82 @@
                                 <div class="row g-3">
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" name="company-name" placeholder="Company Name">
-                                            <label for="name">Company Name</label>
+                                            <input type="text" class="form-control" name="company" placeholder="Company Name">
+                                            <label for="company">Company Name</label>
+
+                                            @error('company')
+                                                <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="text" class="form-control" name="email" placeholder="Job Location">
+                                            <input type="text" class="form-control" name="location" placeholder="Job Location">
                                             <label for="location">Job Location</label>
+
+                                            @error('location')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="email" class="form-control" name="email" placeholder="Company Email">
                                             <label for="email">Company Email</label>
+
+                                            @error('email')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="employment" class="mb-2">Employment Type</label> <br>
-                                            <label for="fulltime">Full Time</label> <input type="radio" name="1"  value="Full Time">
-                                            <label for="fulltime">Full Time</label> <input type="radio" name="1" value="Part Time">
+                                            <label for="fulltime">Full Time</label> <input type="radio" name="employment"  value="Full Time">
+                                            <label for="fulltime">Part Time</label> <input type="radio" name="employment" value="Part Time">
+
+                                            @error('employment')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                     </div>
 
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="url" class="form-control" name="url" placeholder="Subject">
                                             <label for="url">Website/Application URL</label>
+
+                                            @error('url')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="text" class="form-control" name="tags" placeholder="Tags">
-                                            <label for="tags">Tags</label>
+                                            <label for="tags">Tags ('seperated by comma')</label>
+
+                                            @error('tags')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
                                             <input type="number" class="form-control" name="sallary-from" placeholder="Sallary form">
                                             <label for="tags">Sallary form</label>
+
+                                            @error('sallary-from')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-floating">
-                                            <input type="number" class="form-control" name="sallary-from" placeholder="Sallary to">
+                                            <input type="number" class="form-control" name="sallary-to" placeholder="Sallary to">
                                             <label for="tags">Sallary to</label>
+
+                                            @error('sallary-to')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -68,15 +100,23 @@
                                         <div class="form-floating">
                                             <input type="file" class="form-control" name="logo" placeholder="Company Logo">
                                         </div>
+
+                                        @error('logo')
+                                        <p class="text-danger">{{$message}}</p>
+                                        @enderror
                                     </div>                                  
                                     <div class="col-12">
                                         <div class="form-floating">
                                             <textarea class="form-control" placeholder="" name="description" style="height: 150px"></textarea>
                                             <label for="description">Job Description</label>
+
+                                            @error('description')
+                                            <p class="text-danger">{{$message}}</p>
+                                            @enderror
                                         </div>
                                     </div>
                                     <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                        <button class="btn btn-primary w-100 py-3" type="submit">Create</button>
                                     </div>
                                 </div>
                             </form>
