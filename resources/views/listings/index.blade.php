@@ -211,8 +211,6 @@
         </div>
         <!-- Jobs End -->
 
-
-
         {{-- testimony component --}}
         <x-testimony />
 

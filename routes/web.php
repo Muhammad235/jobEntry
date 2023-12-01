@@ -23,6 +23,11 @@ Route::post('/listings', [ListingController::class, 'store']);
 
 Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
+Route::put('/listings/{listing}/edit', [ListingController::class, 'update']);
+
+Route::get('/listings/{listing}/edit', [ListingController::class, 'edit']);
+
+
 Route::get('/about', function () {
     return view ('about');
 });
