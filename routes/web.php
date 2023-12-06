@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -15,8 +16,9 @@ use App\Http\Controllers\ListingController;
 |
 */
 
-Route::get('/register', [UserController::class,'create']);
-Route::post('/register', [UserController::class,'store']);
+Route::post('/login', [UserController::class, 'create']);
+Route::post('/register', [UserController::class, 'store']);
+Route::get('/dashboard', [AuthController::class, 'login']);
 
 Route::get('/', [ListingController::class, 'index']);
 
