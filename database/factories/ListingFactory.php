@@ -18,7 +18,7 @@ class ListingFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'tags' => 'laravel',
+            'tags' => 'laravel, filament, vue, alpine.js',
             'company' => fake()->company(),
             'location' => fake()->city(),
             'email' => fake()->companyEmail(),

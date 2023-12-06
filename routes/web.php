@@ -16,7 +16,10 @@ use App\Http\Controllers\ListingController;
 |
 */
 
-Route::post('/login', [UserController::class, 'create']);
+Route::get('/login', function(){
+    return view('users.login');
+});
+
 Route::post('/register', [UserController::class, 'store']);
 Route::get('/dashboard', [AuthController::class, 'login']);
 
