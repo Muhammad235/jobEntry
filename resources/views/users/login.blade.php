@@ -10,38 +10,30 @@
 <body>
     <div class="wrapper">
         <div class="rec-prism">
-          <div class="face face-top">
-            <div class="content">
-              <h2>Subscribe</h2>
-              <small>Enter your email so we can send you the latest updates!</small>
-              <form onsubmit="event.preventDefault()">
-                <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email">
-                  <label>e-mail</label>
-                </div>
-                <div class="field-wrapper">
-                  <input type="submit" onclick="showThankYou()">
-                </div>
-              </form>
-            </div>
-          </div>
           <div class="face face-front">
             <div class="content">
-              <h2>Login in</h2>
-              <form onsubmit="event.preventDefault()">
+              <h2>Login</h2>
+              <form action="" method="POST">
+                @csrf
                 <div class="field-wrapper">
-                  <input type="text" name="username" placeholder="username">
-                  <label>username</label>
+                  <input type="text" name="email" placeholder="email" value="{{old('email')}}">
+                  <label>email</label>
                 </div>
+                  @error('email')
+                  <small class="text-danger">{{$message}}</small>
+                  @enderror
                 <div class="field-wrapper">
-                  <input type="password" name="password" placeholder="password" autocomplete="new-password">
+                  <input type="password" name="password" placeholder="password" autocomplete="new-password" value="{{old('password')}}">
                   <label>password</label>
                 </div>
+                @error('password')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
                 <div class="field-wrapper">
-                  <input type="submit" onclick="showThankYou()">
+                  <input type="submit" name="login">
                 </div>
                 <span class="psw" onclick="showForgotPassword()">Forgot Password?   </span>
-                <span class="signup" onclick="showSignup()">Not a user?  Register</span>
+                <span class="signup" onclick="showSignup()">Not a user?  Sign up</span>
               </form>
             </div>
           </div>
@@ -49,88 +41,54 @@
             <div class="content">
               <h2>Forgot your password?</h2>
               <small>Enter your email so we can send you a reset link for your password</small>
-              <form onsubmit="event.preventDefault()">
+              <form >
                 <div class="field-wrapper">
                   <input type="text" name="email" placeholder="email">
-                  <label>e-mail</label>
+                  <label>email</label>
                 </div>
                 <div class="field-wrapper">
-                  <input type="submit" onclick="showThankYou()">
+                  <input type="submit" >
                 </div>
               </form>
             </div>
           </div>
+
           <div class="face face-right">
             <div class="content">
               <h2>Sign up</h2>
-              <form onsubmit="event.preventDefault()">
+              <form action="/register" method="POST">
+                @csrf
                 <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email">
-                  <label>e-mail</label>
+                  <input type="text" name="email" placeholder="email" value="{{old('email')}}">
+                  <label>email</label>
+                  @error('email')
+                  <small class="text-danger">{{$message}}</small>
+                  @enderror
                 </div>
                 <div class="field-wrapper">
-                  <input type="password" name="password" placeholder="password" autocomplete="new-password">
+                  <input type="password" name="password" placeholder="password" autocomplete="new-password" value="{{old('password')}}">
                   <label>password</label>
                 </div>
+                @error('password')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
                 <div class="field-wrapper">
-                  <input type="password" name="password2" placeholder="password" autocomplete="new-password">
+                  <input type="password" name="confirmPassword" placeholder="password" autocomplete="new-password" {{old('confirmPassword')}}>
                   <label>re-enter password</label>
                 </div>
+                @error('confirmPassword')
+                <small class="text-danger">{{$message}}</small>
+                @enderror
                 <div class="field-wrapper">
-                  <input type="submit" onclick="showThankYou()">
+                  <input type="submit" name="signup">
                 </div>
-                <span class="singin" onclick="showLogin()">Already a user?  login in</span>
+                <span class="singin" onclick="showLogin()">Already a user?  login</span>
               </form>
-            </div>
-          </div>
-          <div class="face face-left">
-            <div class="content">
-              <h2>Contact us</h2>
-              <form onsubmit="event.preventDefault()">
-                <div class="field-wrapper">
-                  <input type="text" name="name" placeholder="name">
-                  <label>Name</label>
-                </div>
-                <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email">
-                  <label>e-mail</label>
-                </div>
-                <div class="field-wrapper">
-                  <textarea placeholder="your message"></textarea>
-                  <label>your message</label>
-                </div>
-                <div class="field-wrapper">
-                  <input type="submit" onclick="showThankYou()">
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="face face-bottom">
-            <div class="content">
-              <div class="thank-you-msg">
-                Thank you!
-              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <script>
-        let prism = document.querySelector(".rec-prism");
-
-        function showSignup(){
-        prism.style.transform = "translateZ(-100px) rotateY( -90deg)";
-        }
-        function showLogin(){
-        prism.style.transform = "translateZ(-100px)";
-        }
-        function showForgotPassword(){
-        prism.style.transform = "translateZ(-100px) rotateY( -180deg)";
-        }
-
-        function showThankYou(){
-        prism.style.transform = "translateZ(-100px) rotateX( 90deg)";
-        }
-      </script>
+<script src="{{asset('js/login.js')}}"></script>
 </body>
 </html>

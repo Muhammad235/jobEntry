@@ -16,12 +16,11 @@ use App\Http\Controllers\ListingController;
 |
 */
 
-Route::get('/login', function(){
-    return view('users.login');
-});
+Route::get('/login', [UserController::class, 'create']);
 
-Route::post('/register', [UserController::class, 'store']);
-Route::get('/dashboard', [AuthController::class, 'login']);
+Route::post('/login', [UserController::class, 'store']);
+// Route::post('/register', [UserController::class, 'store']);
+
 
 Route::get('/', [ListingController::class, 'index']);
 

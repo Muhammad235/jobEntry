@@ -10,6 +10,11 @@ body {
   text-align: center;
 }
 
+.text-danger{
+  color: red;
+  font-size: 11px;
+}
+
 .wrapper {
   width: 250px;
   height: 350px;
