@@ -13,6 +13,8 @@ body {
 .text-danger{
   color: red;
   font-size: 11px;
+  padding-bottom: -20px;
+  margin-bottom: -20px;
 }
 
 .wrapper {

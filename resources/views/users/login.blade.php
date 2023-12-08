@@ -15,6 +15,7 @@
               <h2>Login</h2>
               <form action="" method="POST">
                 @csrf
+
                 <div class="field-wrapper">
                   <input type="text" name="email" placeholder="email" value="{{old('email')}}">
                   <label>email</label>
@@ -32,63 +33,11 @@
                 <div class="field-wrapper">
                   <input type="submit" name="login">
                 </div>
-                <span class="psw" onclick="showForgotPassword()">Forgot Password?   </span>
-                <span class="signup" onclick="showSignup()">Not a user?  Sign up</span>
-              </form>
-            </div>
-          </div>
-          <div class="face face-back">
-            <div class="content">
-              <h2>Forgot your password?</h2>
-              <small>Enter your email so we can send you a reset link for your password</small>
-              <form >
-                <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email">
-                  <label>email</label>
-                </div>
-                <div class="field-wrapper">
-                  <input type="submit" >
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="face face-right">
-            <div class="content">
-              <h2>Sign up</h2>
-              <form action="/register" method="POST">
-                @csrf
-                <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email" value="{{old('email')}}">
-                  <label>email</label>
-                  @error('email')
-                  <small class="text-danger">{{$message}}</small>
-                  @enderror
-                </div>
-                <div class="field-wrapper">
-                  <input type="password" name="password" placeholder="password" autocomplete="new-password" value="{{old('password')}}">
-                  <label>password</label>
-                </div>
-                @error('password')
-                <small class="text-danger">{{$message}}</small>
-                @enderror
-                <div class="field-wrapper">
-                  <input type="password" name="confirmPassword" placeholder="password" autocomplete="new-password" {{old('confirmPassword')}}>
-                  <label>re-enter password</label>
-                </div>
-                @error('confirmPassword')
-                <small class="text-danger">{{$message}}</small>
-                @enderror
-                <div class="field-wrapper">
-                  <input type="submit" name="signup">
-                </div>
-                <span class="singin" onclick="showLogin()">Already a user?  login</span>
+                <span class="signup">Not a user? <a href="/register"> Sign up</a></span>
               </form>
             </div>
           </div>
         </div>
       </div>
-
-<script src="{{asset('js/login.js')}}"></script>
 </body>
 </html>

@@ -10,6 +10,11 @@ class UserController extends Controller
 {
     public function create()
     {
+        return view("users.register");
+    }
+
+    public function login()
+    {
         return view("users.login");
     }
 
@@ -17,13 +22,13 @@ class UserController extends Controller
     {
         $validatedData = $request->validated();
 
-        // $creaUser = User::create($validatedData);
+        $creaUser = User::create($validatedData);
 
-        // if ($creaUser) {
-        //     auth()->login($creaUser);
+        if ($creaUser) {
+            auth()->login($creaUser);
 
-        //     return redirect('/')->with("message", "Registration was successfull");
-        // }
+            return redirect('/')->with("message", "Registration was successfull");
+        }
 
         dd($request->all());
 
