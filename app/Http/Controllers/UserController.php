@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\LoginUserRequest;
 use App\Http\Requests\RegisterUserRequest;
 
 class UserController extends Controller
@@ -40,5 +41,16 @@ class UserController extends Controller
 
        return redirect('/')->with("message", "You have been logged out!");
 
+    }
+
+    public function authenticate(LoginUserRequest $request)
+    {
+       if (auth()->attempt($request->only("email","password"))) {
+         $request->session()->regenerate();
+
+         return redirect("/dashboard");
+       }
+
+       return back()->withErrors(["email"=> "Invalid Credentials"])->onlyInput('email');
     }
 }

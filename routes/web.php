@@ -37,8 +37,9 @@ Route::get('/about', function () {
     return view ('about');
 });
 
-Route::post('/users', [UserController::class,'store']);
+Route::post('/register', [UserController::class,'store']);
 Route::post('/logout', [UserController::class,'logout']);
+Route::post('/login', [UserController::class, 'authenticate']);
 
 Route::get('/dashboard', function() {
     return view('users.dashboard');

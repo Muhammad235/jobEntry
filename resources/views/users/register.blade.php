@@ -16,7 +16,7 @@
     <h1>Hello</h1>
     <p>Nice having you here</p>
 
-    <form action="/users" method="POST">
+    <form action="/register" method="POST">
         @csrf
       <input type="text" placeholder="Name" name="name" value="{{old('fullname')}}">
       @error('name')
