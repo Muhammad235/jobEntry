@@ -2,42 +2,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/style.css">
+   <!-- Font Awesome Cdn Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Document</title>
     <link rel="stylesheet" href="{{asset('css/login.css')}}">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="rec-prism">
-          <div class="face face-front">
-            <div class="content">
-              <h2>Login</h2>
-              <form action="" method="POST">
-                @csrf
+<div class="wrapper">
+    <h1>Hello Again!</h1>
+    <p>Welcome back you've <br> been missed!</p>
 
-                <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email" value="{{old('email')}}">
-                  <label>email</label>
-                </div>
-                  @error('email')
-                  <small class="text-danger">{{$message}}</small>
-                  @enderror
-                <div class="field-wrapper">
-                  <input type="password" name="password" placeholder="password" autocomplete="new-password" value="{{old('password')}}">
-                  <label>password</label>
-                </div>
-                @error('password')
-                <small class="text-danger">{{$message}}</small>
-                @enderror
-                <div class="field-wrapper">
-                  <input type="submit" name="login">
-                </div>
-                <span class="signup">Not a user? <a href="/register"> Sign up</a></span>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+    <form action="/login" method="POST">
+      @csrf
+      <input type="text" placeholder="Email ID" name="email">
+      @error('email')
+      <p class="error">{{$message}}</p>
+      @enderror
+      <input type="password" placeholder="Password" name="password">  
+      @error('password')
+      <p class="error">{{$message}}</p>
+      @enderror
+      <p class="recover">
+        <a href="resetpassword.html">Recover Password</a>
+      </p>
+      <button>Log in</button>
+    </form>
+   
+    <p class="or">
+      ----- or continue with -----
+    </p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+      <i class="fab fa-github"></i>
+    </div>
+    <div class="not-member">
+      Not a member? <a href="/register">Sign up</a>
+    </div>
+  </div>
 </body>
 </html>

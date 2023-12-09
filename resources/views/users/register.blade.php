@@ -2,59 +2,54 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="assets/style.css">
+   <!-- Font Awesome Cdn Link -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <title>Document</title>
-    <link rel="stylesheet" href="{{asset('css/login.css')}}">
+    <link rel="stylesheet" href="{{('css/login.css')}}">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="rec-prism">
-          <div class="face face-front">
-            <div class="content">
-              <h2>Sign up</h2>
-              <form action="/register" method="POST">
-                @csrf
-                {{-- <div class="field-wrapper">
-                    <input type="text" name="name" placeholder="name" value="{{old('name')}}">
-                    <label>name</label>
-                  </div>
-                    @error('name')
-                    <small class="text-danger">{{$message}}</small>
-                    @enderror --}}
+<div class="wrapper">
 
-                <div class="field-wrapper">
-                  <input type="text" name="email" placeholder="email" value="{{old('email')}}">
-                  <label>email</label>
-                </div>
-                  @error('email')
-                  <small class="text-danger">{{$message}}</small>
-                  @enderror
+    <h1>Hello</h1>
+    <p>Nice having you here</p>
 
-                <div class="field-wrapper">
-                  <input type="password" name="password" placeholder="password" autocomplete="new-password" value="{{old('password')}}">
-                  <label>password</label>
-                </div>
-                @error('password')
-                <small class="text-danger">{{$message}}</small>
-                @enderror
+    <form action="/users" method="POST">
+        @csrf
+      <input type="text" placeholder="Name" name="name" value="{{old('fullname')}}">
+      @error('name')
+          <p class="error">{{$message}}</p>
+      @enderror
+      <input type="text" placeholder="Email ID" name="email" value="{{old('email')}}">
+      @error('email')
+      <p class="error">{{$message}}</p>
+      @enderror
+      <input type="password" placeholder="Password" name="password" value="{{old('password')}}">
+      @error('password')
+      <p class="error">{{$message}}</p>
+      @enderror
+      <input type="password" placeholder="Repeat Password" name="password_confirmation" value="{{old('password_confirmation')}}">
+      @error('password_confirmation')
+      <p class="error">{{$message}}</p>
+      @enderror
+      <p class="recover">
+        <a href="resetpassword.html">Recover Password</a>
+      </p>
+      <button name="submit">Sign up</button>
+    </form>
 
-                <div class="field-wrapper">
-                    <input type="password" name="password_confirmation" placeholder="password_confirmation" autocomplete="password_confirmation" value="{{old('password_confirmation')}}">
-                    <label>confirm password</label>
-                </div>
-                  @error('password_confirmation')
-                  <small class="text-danger">{{$message}}</small>
-                  @enderror
-
-                <div class="field-wrapper">
-                  <input type="submit" name="login">
-                </div>
-                <span class="singin">Already a user? <a href="/login"> Login</a></span>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
+    <p class="or">
+      ----- or continue with -----
+    </p>
+    <div class="icons">
+      <i class="fab fa-google"></i>
+      <i class="fab fa-github"></i>
+    </div>
+    <div class="not-member">
+      Already a member? <a href="/login">Login here</a>
+    </div>
+  </div>
 </body>
 </html>

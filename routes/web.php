@@ -19,10 +19,6 @@ use App\Http\Controllers\ListingController;
 Route::get('/login', [UserController::class, 'login']);
 Route::get('/register', [UserController::class, 'create']);
 
-Route::post('/login', [UserController::class, 'store']);
-Route::post('/register', [UserController::class, 'store']);
-
-
 Route::get('/', [ListingController::class, 'index']);
 
 Route::get('/listings/create', [ListingController::class, 'create']);
@@ -42,3 +38,8 @@ Route::get('/about', function () {
 });
 
 Route::post('/users', [UserController::class,'store']);
+Route::post('/logout', [UserController::class,'logout']);
+
+Route::get('/dashboard', function() {
+    return view('users.dashboard');
+});

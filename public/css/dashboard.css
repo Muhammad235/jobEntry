@@ -59,33 +59,14 @@ img {
   }
 }
 
-.header-logo {
-  margin-right: 2.5rem;
-}
 .header-logo a {
   display: flex;
   align-items: center;
+  font-weight: 600;
+  font-size: 2rem;
 }
-.header-logo a div {
-  flex-shrink: 0;
-  position: relative;
-}
-.header-logo a div:after {
-  display: block;
-  content: "";
-  position: absolute;
-  left: 0;
-  top: auto;
-  right: 0;
-  bottom: 0;
-  overflow: hidden;
-  height: 50%;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.2);
-  -webkit-backdrop-filter: blur(4px);
-          backdrop-filter: blur(4px);
-}
+
+
 
 .header-navigation {
   display: flex;

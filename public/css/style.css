@@ -89,6 +89,15 @@
     transform: rotate(-180deg);
 }
 
+.username{
+    color: #00B074 !important;
+    font-weight: 500;
+}
+
+/* .profile-icon{
+    font-size: 15px;
+} */
+
 .navbar-dark .navbar-nav .nav-link,
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;

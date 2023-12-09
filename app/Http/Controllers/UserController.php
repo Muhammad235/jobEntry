@@ -27,10 +27,18 @@ class UserController extends Controller
         if ($creaUser) {
             auth()->login($creaUser);
 
-            return redirect('/')->with("message", "Registration was successfull");
+            return redirect('/dashboard');
         }
 
-        dd($request->all());
+    }
+
+    public function logout(Request $request)
+    {
+       auth()->logout();
+       $request->session()->invalidate();
+       $request->session()->regenerateToken();
+
+       return redirect('/')->with("message", "You have been logged out!");
 
     }
 }

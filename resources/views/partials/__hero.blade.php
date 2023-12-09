@@ -10,6 +10,7 @@
         </div>
         <!-- Spinner End -->
 
+        <x-flash-message />
 
         <!-- Navbar Start -->
         <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
@@ -24,8 +25,12 @@
                     <a href="/" class="nav-item nav-link">Home</a>
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="job-list.html" class="nav-item nav-link">Jobs</a>
-                    {{-- <a href="contact.html" class="nav-item nav-link">Contact</a> --}}
-                    <a href="/login" class="nav-item nav-link">Login</a>          
+                    @auth
+                    <a href="" class="username nav-item nav-link"><i class="profile-icon bi bi-person"></i>  {{auth()->user()->name}}</a>
+                        @else
+                      <a href="/login" class="nav-item nav-link">Login</a>          
+                    @endauth
+
                 </div>
                 <a href="/listings/create" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Post A Job<i class="fa fa-arrow-right ms-3"></i></a>
             </div>
