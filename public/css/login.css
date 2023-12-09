@@ -51,12 +51,12 @@ button{
   outline: none;
   border: none;
   width: 85%;
-  background: tomato;
+  background: #00B074;
   color: #fff;
   cursor: pointer;
 }
 button:hover{
-  background: rgba(122, 30, 30, 0.767);
+  background: #03462f;
 }
 .or{
   font-size: 0.8rem;
@@ -84,7 +84,7 @@ button:hover{
   margin-top: 1.4rem;
 }
 .not-member a{
-  color: tomato;
+  color: #00B074;
   text-decoration: none;
 }
 a:hover{
