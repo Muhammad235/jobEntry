@@ -42,5 +42,5 @@ Route::post('/logout', [UserController::class,'logout']);
 Route::post('/login', [UserController::class, 'authenticate']);
 
 Route::get('/dashboard', function() {
-    return view('users.dashboard');
+    return view('users.manage_listings');
 });
