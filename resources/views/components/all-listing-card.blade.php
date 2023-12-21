@@ -18,11 +18,11 @@
                     $tags = explode(',', $listing->tags);
                 @endphp
                     @foreach ($tags as $tag)
-                    <a class="btn me-1 tags href="/listings/{{$listing->id}}">
+                    <a class='btn me-1 tags' href='/listings/{{$listing->id}}'>
                         {{ $tag }}
                     </a>
                    @endforeach
-                <a class="btn btn-primary" href="/listings/{{$listing->id}}">Apply Now</a>
+                <a class="btn btn-primary" href="mailto:{{$listing->email}}">Apply Now</a>
             </div>
             <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
         </div>

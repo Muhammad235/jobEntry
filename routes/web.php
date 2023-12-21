@@ -17,7 +17,7 @@ use App\Http\Controllers\ListingController;
 */
 
 
-Route::get('/', [ListingController::class, 'index']);
+Route::get('/', [ListingController::class, 'index'])->name('home');
 
 Route::get('/about', function () {
     return view ('about');
