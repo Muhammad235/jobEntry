@@ -22,7 +22,7 @@ class ListingController extends Controller
 
             return back()->with('message', 'Unathorized action');
         }
-        
+
         return view ('listings.show', [
             'listing' => $listing,
         ]);
@@ -48,7 +48,7 @@ class ListingController extends Controller
             return redirect('/dashboard')->with('message', 'Job post created successfully');
         }
 
-    
+        return back();
     }
 
     public function edit(Listing $listing)
@@ -78,6 +78,8 @@ class ListingController extends Controller
             return redirect('/dashboard')->with('message', 'Job post updated successfully');
             
         }
+
+        return back();
     }
 
     public function destroy(Listing $listing)
@@ -90,6 +92,5 @@ class ListingController extends Controller
         $listing->delete();
 
         return back()->with('message', 'Job post deleted successfully');
-
     }
 }

@@ -31,7 +31,7 @@ class CreateJobListRequest extends FormRequest
             'sallary_from' => ['required', 'numeric'],
             'sallary_to' => ['required', 'numeric'],
             'tags' => ['required'],
-            // 'logo' => ['required'],
+            'logo' => ['required'],
             'description' => ['required', 'max:300'],
         ];
     }
