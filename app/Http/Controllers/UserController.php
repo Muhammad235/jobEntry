@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listing;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\LoginUserRequest;
@@ -46,11 +47,19 @@ class UserController extends Controller
     public function authenticate(LoginUserRequest $request)
     {
        if (auth()->attempt($request->only("email","password"))) {
-         $request->session()->regenerate();
+           $request->session()->regenerate();
 
-         return redirect("/dashboard");
+           return redirect("/dashboard");
        }
 
        return back()->withErrors(["email"=> "Invalid Credentials"])->onlyInput('email');
     }
+
+    public function manage()
+    {
+        $userListings = auth()->user()->listings()->get();
+
+        return view('users.manage_listings', ['user_listings' => $userListings]);
+    }
+
 }

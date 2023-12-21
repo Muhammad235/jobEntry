@@ -26,7 +26,7 @@
                     <a href="/about" class="nav-item nav-link">About</a>
                     <a href="job-list.html" class="nav-item nav-link">Jobs</a>
                     @auth
-                    <a href="" class="username nav-item nav-link"><i class="profile-icon bi bi-person"></i>  {{auth()->user()->name}}</a>
+                    <a href="/dashboard" class="username nav-item nav-link"><i class="profile-icon bi bi-person"></i> {{auth()->user()->name}}</a>
                         @else
                       <a href="/login" class="nav-item nav-link">Login</a>          
                     @endauth

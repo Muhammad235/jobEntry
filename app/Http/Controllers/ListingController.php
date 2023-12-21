@@ -18,12 +18,17 @@ class ListingController extends Controller
 
     public function show(Listing $listing)
     {
+        if ($listing->user_id != auth()->id()) {
+
+            return back()->with('message', 'Unathorized action');
+        }
+        
         return view ('listings.show', [
             'listing' => $listing,
         ]);
     }
 
-    public function create(Listing $listing)
+    public function create()
     {
         return view ('listings.create');
     }
@@ -33,27 +38,33 @@ class ListingController extends Controller
         $validateData = $request->validated();
 
         // $validateData['logo'] = $request->file('logo')->store('logos', 'public');
+        $validateData['logo'] = 'test.png';
 
-        // dd($validateData['logo']);
-
+        $validateData['user_id'] = auth()->id();
         $createJoblist = Listing::create($validateData);
 
         if ($createJoblist) {
 
-            return redirect('/listings/create')->with('message', 'Job post created successfully');
-            
+            return redirect('/dashboard')->with('message', 'Job post created successfully');
         }
+
     
     }
 
     public function edit(Listing $listing)
     {
+        if ($listing->user_id != auth()->id()) {
+
+            return back()->with('message', 'Unathorized action');
+        }
+
         return view ('listings.edit', ['listing' => $listing]);
     }
 
 
     public function update(CreateJobListRequest $request, Listing $listing)
     {
+
         $validateData = $request->validated();
 
         // $validateData['logo'] = $request->file('logo')->store('logos', 'public');
@@ -64,15 +75,21 @@ class ListingController extends Controller
 
         if ($createJoblist) {
 
-            return back()->with('message', 'Job post updated successfully');
+            return redirect('/dashboard')->with('message', 'Job post updated successfully');
             
         }
     }
 
     public function destroy(Listing $listing)
     {
+        if ($listing->user_id != auth()->id()) {
+
+            return back()->with('message', 'Unathorized action');
+        }
+
         $listing->delete();
 
         return back()->with('message', 'Job post deleted successfully');
+
     }
 }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()
+            ->onDelete('cascade');
             $table->string('title');
             $table->string('tags');
             $table->string('company');
@@ -22,7 +24,7 @@ return new class extends Migration
             $table->longText('description');
             $table->integer('sallary_from');
             $table->integer('sallary_to');
-            $table->$table->enum('employment_type', ['Full Time', 'Part Time']);//fulltime, part time
+            $table->enum('employment_type', ['Full Time', 'Part Time']); //fulltime, part time
             $table->string('logo'); 
             $table->timestamps();
         });

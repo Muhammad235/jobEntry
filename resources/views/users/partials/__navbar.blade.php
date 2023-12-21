@@ -25,33 +25,21 @@
             </div>
             <div class="header-navigation">
                 <nav class="header-navigation-links">
-                    {{-- <a href="#"> Home </a>
-                    <a href="#"> Dashboard </a>
-                    <a href="#"> Projects </a>
-                    <a href="#"> Tasks </a>
-                    <a href="#"> Reporting </a>
-                    <a href="#"> Users </a> --}}
+                    {{-- <a href="#"> Home </a> --}}
                 </nav>
                 <div class="header-navigation-actions">
                     <a href="#" class="avatar">
                         <img src="https://assets.codepen.io/285131/hat-man.png" alt="" />
-
                     </a>
                    
-                    <a class="username mx-3">{{auth()->user()->name}}</a>
+                    <a class="username mx-3"> {{auth()->user()->name}}</a>
 
+                    <a href="/" class="px-2 ">Go to website</a>
                     <form action="/logout" class="button" method="POST">
                         @csrf
-                        <i class="ph-lightning-bold"></i>
                         <button class="btn" type="submit"><span>Logout</span></button>
                      </form>
-
-                </div>
-                
+                </div>    
             </div>
-            <a href="#" class="button">
-                <i class="ph-list-bold"></i>
-                <span>Menu</span>
-            </a>
         </div>
     </header>

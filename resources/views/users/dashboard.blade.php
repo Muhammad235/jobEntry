@@ -1,5 +1,4 @@
-
-@include('users.partials.__navbar')
+<x-flash-message />
 
 {{-- VIEW CONTENT --}}
 @yield('content')

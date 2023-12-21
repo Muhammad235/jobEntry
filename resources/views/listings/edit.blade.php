@@ -1,11 +1,13 @@
+@extends('users.dashboard')
+
 @include('partials.__meta-tags')
 
 {{-- <x-flash-message /> --}}
-
+ 
         <!-- Contact Start -->
         <div class="container-xxl py-5">
             <div class="container">
-                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Create a job post</h1>
+                <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Edit a job post</h1>
                 <div class="row g-4 px-5">
                     <div class="col-md-1"></div>
                     <div class="col-md-10">

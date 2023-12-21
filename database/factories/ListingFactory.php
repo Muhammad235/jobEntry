@@ -17,6 +17,7 @@ class ListingFactory extends Factory
     public function definition(): array
     {
         return [
+            'user_id' => fake()->randomElement([1, 2, 3, 4, 5]),
             'title' => fake()->sentence(),
             'tags' => 'laravel, filament, vue, alpine.js',
             'company' => fake()->company(),

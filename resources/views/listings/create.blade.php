@@ -122,7 +122,7 @@
                                     </div>                                  
                                     <div class="col-12">
                                         <div class="form-floating">
-                                            <textarea class="form-control" placeholder="" name="description" style="height: 150px">#{{old('description')}}</textarea>
+                                            <textarea class="form-control" placeholder="" name="description" style="height: 150px">{{old('description')}}</textarea>
                                             <label for="description">Job Description</label>
 
                                             @error('description')
